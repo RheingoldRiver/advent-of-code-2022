@@ -1,4 +1,4 @@
-from utils.parse.parse import Parser
+from utils.parser.parser import Parser
 
 
 def test_split_into_equal_segments():
