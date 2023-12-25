@@ -4,7 +4,7 @@ from collections import defaultdict
 from copy import copy, deepcopy
 
 from utils.aoc_entity import AOCEntity
-from utils.parse.parser import Parser
+from utils.parser.parser import Parser
 
 
 class Entity(AOCEntity):

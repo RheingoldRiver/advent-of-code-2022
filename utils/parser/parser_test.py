@@ -18,3 +18,10 @@ def test_split_twice():
     assert Parser.split_twice_both(s, ":", ",", ";") == (['cat', 'bat'], ["3", "4"])
     s = 'cat: 3; 4'
     assert Parser.split_twice_val(s, ':', ';') == ("cat", ["3", "4"])
+
+
+def test_find_int():
+    # s = '34wefksjdf'
+    # assert Parser.find_int_in(s) == 34
+    s = 'skf sdfklj sdf 34123134'
+    assert Parser.find_int_in(s) == 34123134

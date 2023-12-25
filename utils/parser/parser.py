@@ -1,3 +1,6 @@
+import re
+
+
 class Parser:
     @staticmethod
     def split_into_equal_segments(s: str, num_chars: int):
@@ -29,3 +32,11 @@ class Parser:
     @staticmethod
     def lines(s):
         return s.split('\n')
+
+    @staticmethod
+    def find_int_in(s):
+        match = re.search(r'(\d+)', s)
+        try:
+            return int(match[1])
+        except TypeError:
+            raise ValueError(f"cannot find number in {s}")
