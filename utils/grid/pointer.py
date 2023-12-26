@@ -404,3 +404,23 @@ class Pointer:
 
     def all_neighbors(self, steps: int = 1, wrap: bool = False):
         return self.neighbors(steps, wrap) + self.diagonal_neighbors(steps, steps, wrap)
+
+    def cells_to_left(self):
+        if self.can_move_left():
+            return self.grid.row_at(self.row)[:self.col]
+        return []
+
+    def cells_to_right(self):
+        if self.can_move_right():
+            return self.grid.row_at(self.row)[self.col+1:]
+        return []
+
+    def cells_above(self):
+        if self.can_move_up():
+            return self.grid.col_at(self.col)[:self.row]
+        return []
+
+    def cells_below(self):
+        if self.can_move_down():
+            return self.grid.col_at(self.col)[self.row+1:]
+        return []

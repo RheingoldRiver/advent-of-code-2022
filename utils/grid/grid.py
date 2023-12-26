@@ -126,25 +126,25 @@ class Grid:
                 }))
         return cls(grid)
 
-    def row_at(self, idx: int, as_copy: bool = True):
+    def row_at(self, idx: int, as_copy: bool = False):
         if idx < 0:
             raise ValueError("requested row with index < 0")
         if idx >= self.height:
             raise ValueError("requested row with index > height")
         return Array(deepcopy(self.grid[idx]) if as_copy else self.grid[idx])
 
-    def col_at(self, idx, as_copy: bool = True):
+    def col_at(self, idx, as_copy: bool = False):
         if idx < 0:
             raise ValueError("requested column with index < 0")
         if idx >= self.width:
             raise ValueError("requested column with index > width")
         return Array([(deepcopy(row[idx]) if as_copy else row[idx]) for row in self.grid])
 
-    def all_rows(self, as_copy: bool = True):
+    def all_rows(self, as_copy: bool = False):
         for idx in range(len(self.grid)):
             yield self.row_at(idx, as_copy)
 
-    def all_columns(self, as_copy: bool = True):
+    def all_columns(self, as_copy: bool = False):
         for idx in range(len(self.grid[0])):
             yield self.col_at(idx, as_copy)
 
